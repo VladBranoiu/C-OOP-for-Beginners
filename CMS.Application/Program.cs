@@ -1,5 +1,6 @@
 ﻿using CMS.UI.Models;
 using CMS.UI.Display;
+using System.Reflection.Metadata.Ecma335;
 
 //Object Instantiation
 Student student =  new Student();
@@ -108,3 +109,25 @@ List<string> hobbies = student1.Hobbies;
 //Inheritance
 Student student6 = new Student(10001, "Robert", "Smith");
 Console.WriteLine(student6.GetFullName());
+
+//Castig in inhertitance
+Person person = new Student(10001, "David", "Smith");
+Console.WriteLine(person.GetFullName);
+
+//List<string> fullname = person.Hobbies;
+//List<string> fullname = (person as Student).Hobbies; //as casting
+
+Student student7 = person as Student;
+if (student7 != null)
+{ 
+    List<string> lstHobbies = student7.Hobbies;
+}
+
+if (person is Student)
+{ 
+    //Refer Student members here
+    Student student8 = person as Student;
+    List<string> lstHobbies2 = student8.Hobbies;
+}
+
+//Polymorphism
